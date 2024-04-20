@@ -53,7 +53,9 @@
     word-break: keep-all;
     z-index: 0;
     border: 5px solid rgb(206, 90, 44); /* Adding a solid border */
-    padding: 10px 20px;
+    padding: 10px 20px; 
+    margin-top: 50px;
+    width: 200px;
     /* border-radius: 5px;  */
     border-radius: 25px;
     transition: background-color 0.3s ease;
@@ -62,5 +64,94 @@
   
   .submit-btn:hover {
     background-color: #d76639;
+  } 
+  /* ApplyDoctor.css */
+
+/* Animation for submit button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rest of your styles... */
+
+.submit-btn {
+  /* Your existing styles... */
+  /* Adding animation */
+  animation: pulse 1s infinite; /* Applying the pulse animation infinitely */
+}
+
+/* Other styles... */
+
+  /* ApplyDoctor.css */
+
+/* ApplyDoctor container */
+.apply-doctor-container {
+  display: flex; 
+  background-color: rgb(4, 4, 4);
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  /* border-radius: 25px; */
+  border: 5px solid rgb(194, 103, 67);
+}
+
+/* ApplyDoctor header */
+.apply-doctor-heading {
+  font-size: xx-large; 
+  font-style: italic;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #eee9e7;
+  position: relative;
+  overflow: visible;
+}
+
+/* Fade-in animation */
+.apply-doctor-heading {
+  animation: fadeInUp 1s ease forwards; /* Add fade-in animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+.notification{
+  background-color: #d76639;
+  color: #fff;
+}
+.delete{
+  font-display: auto; 
+  font-size: larger; 
+  background-color: #d76639; 
+  border-radius: 6px; 
+  border-style: solid; 
+  color: #fff;
+
+  border-color: black;
+} 
+.read{
+  font-display: auto; 
+  font-size: larger; 
+  background-color: #d76639; 
+  border-radius: 6px; 
+  border-style: solid; 
+  color: #fff;
+  border-color: black; 
   
+
+}

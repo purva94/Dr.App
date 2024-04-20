@@ -11,7 +11,8 @@
     min-height: 100%;
     width: 300px;
     border-radius: 5px;
-    background-color: rgba(51, 1, 1); 
+    background-color: rgba(51, 1, 1);  
+    /* background-color: rgba(35, 144, 234, 0.726);   */
     box-shadow: 0 0 2px gray; 
     margin-right: 20px; 
     color: white;

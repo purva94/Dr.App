@@ -257,11 +257,12 @@
 ////
 
 import React from "react";
-import { message } from "antd";
+import { Badge, message } from "antd";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/LayoutStyles.css";
 import { UserMenu, adminMenu } from "../Data/data"; // Renamed from UserMenu to avoid conflict
 import { useSelector } from "react-redux";
+import { Cursor } from "mongoose";
 
 const Layout = ({ children }) => {
   const { user } = useSelector((state) => state.user);
@@ -311,8 +312,16 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-              <div className="header-content">
-                <i className="fa-solid fa-bell"></i>
+              <div className="header-content" style={{ Cursor: "pointer" }}>
+                <Badge
+                  count={user && user.notification.length}
+                  onClick={() => {
+                    navigate("/notification");
+                  }}
+                >
+                  <i class="fa-solid fa-bell"></i>
+                </Badge>
+
                 <Link to="/profile">{user?.name}</Link>
               </div>
             </div>

@@ -1,19 +1,52 @@
 import React from "react";
 import Layout from "./../components/Layout";
-import { Form, Row, Col, TimePicker } from "antd"; // Import Col component from Ant Design
+import { Form, Row, Col, TimePicker, message } from "antd"; // Import Col component from Ant Design
 import "./../styles/ApplyDoctor.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import axios from "axios";
 const ApplyDoctor = () => {
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   //handle form
-  const handleFinish = (values) => {
-    console.log(values);
+  const handleFinish = async (values) => {
+    try {
+      dispatch(showLoading());
+      const res = await axios.post(
+        "/api/v1/user/apply-doctor",
+        { ...values, userId: user._id },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (res.data.success) {
+        message.success(res.data.success);
+        navigate("/");
+      } else {
+        message.error(res.data.success);
+      }
+    } catch (error) {
+      dispatch(hideLoading());
+      console.log(error);
+      message.error("Something went  wrong!");
+    }
+    // console.log(values);
   };
   return (
     <Layout>
       {/* <h1 className="text-center">Apply Doctor</h1>
       <Form layout="vertical" onFinish={handleFinish} className="m-3">
         <h4>Personal Details:</h4> changes -->*/}
-      <h1 className="apply-doctor-heading">Apply Doctor</h1>
+      {/* <h1 className="apply-doctor-heading">Apply Doctor</h1> */}
+      <div className="apply-doctor-container header">
+        <h1 className="apply-doctor-heading">Apply Doctor</h1>
+      </div>
+
       <Form layout="vertical" onFinish={handleFinish} className="m-3">
         <h4 className="personal-details-heading">Personal Details:</h4>
 
@@ -118,12 +151,9 @@ const ApplyDoctor = () => {
             </Form.Item>
           </Col>
           <Col xs={24} sm={12} md={8}></Col>
-          {/* <Col xs={24} sm={12} md={8}> */}
-          {/* <button className="btn btn-primary form-btn" type="submit">
-              Submit */}
           <Col xs={24} sm={12} md={8}>
             <button className="submit-btn" type="submit">
-              Submit
+              SUBMIT
             </button>
           </Col>
         </Row>
