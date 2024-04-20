@@ -24,7 +24,7 @@ const Doctors = () => {
     try {
       const res = await axios.post(
         "/api/v1/admin/changeAccountStatus",
-        { doctorId: record.id, userId: record.userId, status: status },
+        { doctorId: record._id, userId: record.userId, status: status },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("tokrn")}`,
