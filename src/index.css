@@ -3,5 +3,143 @@
   margin: 0;
   box-sizing: border-box;
 
-} 
+}  
+/*loader*/
+.spinner{
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.214);
+}
+.form-btn{
+  width: 250px !important;  
+  margin-top: 30px !important;
+}
 
+/* styling for login page  */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* antd ovverride */
+input{
+  border-radius: 0 !important;
+  border: 1px solid rgba(128, 128, 128, 0.521) !important;
+  height: 40px !important;
+}
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid gray !important;
+
+} 
+label{
+  font-size: 16px !important;
+  color: rgb(0, 0, 0);
+}
+.ant-form-item{
+  margin: 10px 0 !important;
+}
+/* common styling */
+.card-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.normal-text{
+  font-size: 1rem;
+}
+.card{
+
+  box-shadow: 0 0 2px gray;
+  border-radius: 0 !important;
+}
+.primary-button{
+  background-color: #0b0b0be1 !important;
+  border-color: #005555 !important;
+  height: 40px !important;
+  width: 100% !important; 
+  color:white !important; 
+  font-size: 16  px !important;
+} 
+.anchor{
+  color: rgb(0, 0, 0) !important;
+  text-decoration: underline !important;
+  font-size: 16px !important;
+}
+.anchor:hover{
+  text-decoration: underline !important;
+}
+
+/* authentication pages  */
+.authentication{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: #d6dcdc;
+
+} 
+.authentication-form{ 
+  padding: 4px;
+  width: 400px;
+
+}
+.authentication .card-title{
+     font-size: 1.5rem;
+     font-weight: bold;
+     background-color: rgba(255, 68, 0, 0.715);
+     color: white !important; 
+     max-width: max-content !important; 
+     padding: 7px 15px;
+     margin-left: -40px; 
+     border-bottom-left-radius:10px;
+}
+/* .fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+/* RegisterStyle.css */
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* RegisterStyle.css */
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,66 @@
+/* ApplyDoctor.css */
+
+/* Style for the Apply Doctor heading */
+.apply-doctor-heading {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px; 
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Style for the Personal Details section heading */
+  .personal-details-heading {
+    color: #666;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the input fields */
+  .ant-form-item-label {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Style for the submit button */
+  .submit-btn {
+    /* background-color: #007bff; */ 
+    background-clip: padding-box;
+    background-color:black; 
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: row; 
+    flex-shrink: 0;
+    font-family: Eina01,sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    justify-content: center;
+    line-height: 24px;
+    margin: 0;
+    min-height: 640x;
+    outline: none;
+    overflow: visible;
+    padding: 19px 26px; 
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: auto;
+    word-break: keep-all;
+    z-index: 0;
+    border: 5px solid rgb(206, 90, 44); /* Adding a solid border */
+    padding: 10px 20px;
+    /* border-radius: 5px;  */
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+  
+  .submit-btn:hover {
+    background-color: #d76639;
+  }
+  
