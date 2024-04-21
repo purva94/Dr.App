@@ -256,21 +256,121 @@
 
 ////
 
+// import React from "react";
+// import { Badge, message } from "antd";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import "../styles/LayoutStyles.css";
+// import { userMenu, adminMenu } from "../Data/data"; // Renamed from UserMenu to avoid conflict
+// import { useSelector } from "react-redux";
+// import { Cursor } from "mongoose";
+
+// const Layout = ({ children }) => {
+//   const { user } = useSelector((state) => state.user);
+//   const location = useLocation();
+//   const navigate = useNavigate();
+
+//   // Logout function
+//   const handleLogout = () => {
+//     localStorage.clear();
+//     message.success("Logout successfully");
+//     navigate("/login");
+//   };
+//   //======== Doctor Menu =======
+//   const doctorMenu = [
+//     {
+//       name: "Home",
+//       path: "/",
+//       icon: "fa-solid fa-house",
+//     },
+//     {
+//       name: "Appointments",
+//       path: "/appointments",
+//       icon: "fa-solid fa-list",
+//     },
+//     {
+//       name: "Profile",
+//       path: `/doctor/profile/${user?._id}`,
+//       icon: "fa-solid fa-user",
+//     },
+//   ];
+
+//   // Rendering menu list
+//   const SidebarMenu = user?.isAdmin
+//     ? adminMenu
+//     : user?.isDoctor
+//     ? doctorMenu
+//     : userMenu; // Moved outside of the handleLogout function
+
+//   return (
+//     <>
+//       <div className="main">
+//         <div className="layout">
+//           <div className="sidebar">
+//             <div className="logo">
+//               <h6>DR_APP</h6>
+//               <hr />
+//             </div>
+//             <div className="menu">
+//               {SidebarMenu.map((menu) => {
+//                 const isActive = location.pathname === menu.path;
+//                 return (
+//                   <>
+//                     <div
+//                       key={menu.path}
+//                       // key={index}
+//                       className={`menu-item ${isActive && "active"}`}
+//                     >
+//                       <i className={menu.icon}></i>
+//                       <Link to={menu.path}>{menu.name}</Link>
+//                     </div>
+//                   </>
+//                 );
+//               })}
+//               <div className={`menu-item`} onClick={handleLogout}>
+//                 <i className="fa-solid fa-right-from-bracket"></i>
+//                 <Link to="/login">Logout</Link>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="content">
+//             <div className="header">
+//               <div className="header-content" style={{ Cursor: "pointer" }}>
+//                 <Badge
+//                   count={user && user.notification.length}
+//                   onClick={() => {
+//                     navigate("/notification");
+//                   }}
+//                 >
+//                   <i class="fa-solid fa-bell"></i>
+//                 </Badge>
+
+//                 <Link to="/profile">{user?.name}</Link>
+//               </div>
+//             </div>
+//             <div className="body">{children}</div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Layout;
+
+// Import necessary libraries and components
 import React from "react";
 import { Badge, message } from "antd";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/LayoutStyles.css";
-import { UserMenu, adminMenu } from "../Data/data"; // Renamed from UserMenu to avoid conflict
+import { userMenu, adminMenu } from "../Data/data"; // Import userMenu and adminMenu
 import { useSelector } from "react-redux";
-import { Cursor } from "mongoose";
 
+// Define the Layout component
 const Layout = ({ children }) => {
+  // Retrieve user information from Redux store
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Rendering menu list
-  const SidebarMenu = user?.isAdmin ? adminMenu : UserMenu; // Moved outside of the handleLogout function
 
   // Logout function
   const handleLogout = () => {
@@ -279,6 +379,36 @@ const Layout = ({ children }) => {
     navigate("/login");
   };
 
+  // Define doctor menu items
+  const doctorMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "fa-solid fa-house",
+    },
+    {
+      name: "Appointments",
+      path: "/appointments",
+      icon: "fa-solid fa-list",
+    },
+    {
+      name: "Profile",
+      path: `/doctor/profile/${user?._id}`, // Update the path accordingly
+      icon: "fa-solid fa-user",
+    },
+  ];
+
+  // Determine the sidebar menu based on user role
+  let SidebarMenu = [];
+  if (user?.isAdmin) {
+    SidebarMenu = adminMenu;
+  } else if (user?.isDoctor) {
+    SidebarMenu = doctorMenu;
+  } else {
+    SidebarMenu = userMenu;
+  }
+
+  // Render the Layout component
   return (
     <>
       <div className="main">
@@ -289,21 +419,20 @@ const Layout = ({ children }) => {
               <hr />
             </div>
             <div className="menu">
+              {/* Render menu items */}
               {SidebarMenu.map((menu) => {
                 const isActive = location.pathname === menu.path;
                 return (
-                  <>
-                    <div
-                      key={menu.path}
-                      // key={index}
-                      className={`menu-item ${isActive && "active"}`}
-                    >
-                      <i className={menu.icon}></i>
-                      <Link to={menu.path}>{menu.name}</Link>
-                    </div>
-                  </>
+                  <div
+                    key={menu.path}
+                    className={`menu-item ${isActive && "active"}`}
+                  >
+                    <i className={menu.icon}></i>
+                    <Link to={menu.path}>{menu.name}</Link>
+                  </div>
                 );
               })}
+              {/* Logout menu item */}
               <div className={`menu-item`} onClick={handleLogout}>
                 <i className="fa-solid fa-right-from-bracket"></i>
                 <Link to="/login">Logout</Link>
@@ -313,15 +442,15 @@ const Layout = ({ children }) => {
           <div className="content">
             <div className="header">
               <div className="header-content" style={{ Cursor: "pointer" }}>
+                {/* Render user's name in header */}
                 <Badge
                   count={user && user.notification.length}
                   onClick={() => {
                     navigate("/notification");
                   }}
                 >
-                  <i class="fa-solid fa-bell"></i>
+                  <i className="fa-solid fa-bell"></i>
                 </Badge>
-
                 <Link to="/profile">{user?.name}</Link>
               </div>
             </div>
@@ -333,71 +462,5 @@ const Layout = ({ children }) => {
   );
 };
 
+// Export the Layout component
 export default Layout;
-
-// //for user
-
-// import React from "react";
-// import { message } from "antd";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import "../styles/LayoutStyles.css";
-// import { UserMenu, adminMenu } from "../Data/data"; // Renamed from UserMenu to avoid conflict
-// import { useSelector } from "react-redux";
-
-// const Layout = ({ children }) => {
-//   const { user } = useSelector((state) => state.user);
-//   const location = useLocation();
-//   const navigate = useNavigate();
-
-//   // Determine the menu based on user role
-//   const sidebarMenu = user?.isAdmin ? adminMenu : UserMenu;
-
-//   // Logout function
-//   const handleLogout = () => {
-//     localStorage.clear();
-//     message.success("Logout successfully");
-//     navigate("/login");
-//   };
-
-//   return (
-//     <div className="main">
-//       <div className="layout">
-//         <div className="sidebar">
-//           <div className="logo">
-//             <h6>DR_APP</h6>
-//             <hr />
-//           </div>
-//           <div className="menu">
-//             {sidebarMenu.map((menu) => {
-//               const isActive = location.pathname === menu.path;
-//               return (
-//                 <div
-//                   key={menu.path}
-//                   className={`menu-item ${isActive && "active"}`}
-//                 >
-//                   <i className={menu.icon}></i>
-//                   <Link to={menu.path}>{menu.name}</Link>
-//                 </div>
-//               );
-//             })}
-//             <div className="menu-item" onClick={handleLogout}>
-//               <i className="fa-solid fa-right-from-bracket"></i>
-//               <Link to="/login">Logout</Link>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="content">
-//           <div className="header">
-//             <div className="header-content">
-//               <i className="fa-solid fa-bell"></i>
-//               <Link to="/profile">{user?.name}</Link>
-//             </div>
-//           </div>
-//           <div className="body">{children}</div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Layout;

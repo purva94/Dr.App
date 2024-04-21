@@ -1,4 +1,4 @@
-export const UserMenu = [
+export const userMenu = [
   {
     name: "Home",
     path: "/",
