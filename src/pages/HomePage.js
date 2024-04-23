@@ -75,6 +75,12 @@ const HomePage = () => {
     <Layout>
       <h1 className="text-center">Home Page</h1>
       {/* Render DoctorList component only once */}
+      {/* <Row>
+        {doctors &&
+          doctors.map((doctor) => (
+            <DoctorList key={doctor.id} doctor={doctor} />
+          ))}
+      </Row> */}
       <Row>
         {doctors &&
           doctors.map((doctor) => (

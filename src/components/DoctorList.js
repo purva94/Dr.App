@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const DoctorList = ({ doctor }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="card p-2">
+      <div
+        className="card m-2 "
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate(`/book-appointment/${doctor._id}`)}
+      >
         <div className="card-header">
           DR.{doctor.firstName}
           {doctor.lastName}
@@ -18,13 +24,22 @@ const DoctorList = ({ doctor }) => {
             {doctor.experience}
           </p>
           <p>
-            <b>Fees Per Cunsaltation: </b>
-            {doctor.feesPerCunsaltation}
+            <b> Phone </b>
+            {doctor.phone}
           </p>
+          <p>
+            <b> Address: </b>
+            {doctor.address}
+          </p>
+          {/* <p>
+            <b>Fees Per Consultation: </b>
+            {doctor.feesPerConsultation}
+          </p>
+
           <p>
             <b>Timings: </b>
             {doctor.timings[0]}-{doctor.timings[1]}
-          </p>
+          </p> */}
         </div>
       </div>
     </>
