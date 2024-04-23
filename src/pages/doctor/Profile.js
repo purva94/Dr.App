@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from "../../redux/features/alertSlice";
-
+import moment from "moment";
 import { Form, Row, Col, TimePicker, message } from "antd";
 const Profile = () => {
   const { user } = useSelector((state) => state.user);
@@ -21,7 +21,14 @@ const Profile = () => {
       dispatch(showLoading());
       const res = await axios.post(
         "/api/v1/doctor/updateProfile",
-        { ...values, userId: user._id },
+        {
+          ...values,
+          userId: user._id,
+          timings: [
+            moment(values.timings[0].format("HH:mm")),
+            moment(values.timings[1].format("HH:mm")),
+          ],
+        },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -74,7 +81,13 @@ const Profile = () => {
           layout="vertical"
           onFinish={handleFinish}
           className="m-3"
-          initialValues={doctor}
+          initialValues={{
+            ...doctor,
+            timings: [
+              moment(doctor.timings[0], "HH:mm"),
+              moment(doctor.timings[1], "HH:mm"),
+            ],
+          }}
         >
           <h4 className="personal-details-heading">Personal Details:</h4>
 
@@ -172,12 +185,11 @@ const Profile = () => {
                 <input type="text" placeholder="Your Fees Per Consultation" />
               </Form.Item>
             </Col>
-            {/* <Col xs={24} sm={12} md={8}>
+            <Col xs={24} sm={12} md={8}>
               <Form.Item label="Timing" name="timings" required>
-                
                 <TimePicker.RangePicker format="HH:mm" />
               </Form.Item>
-            </Col> */}
+            </Col>
             <Col xs={24} sm={12} md={8}></Col>
             <Col xs={24} sm={12} md={8}>
               <button className="submit-btn" type="submit">
