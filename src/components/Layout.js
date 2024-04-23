@@ -393,20 +393,26 @@ const Layout = ({ children }) => {
     },
     {
       name: "Profile",
-      path: `/doctor/profile/${user?._id}`, // Update the path accordingly
+      path: `/doctor/Profile/${user?._id}`, // Update the path accordingly
       icon: "fa-solid fa-user",
     },
   ];
 
   // Determine the sidebar menu based on user role
-  let SidebarMenu = [];
-  if (user?.isAdmin) {
-    SidebarMenu = adminMenu;
-  } else if (user?.isDoctor) {
-    SidebarMenu = doctorMenu;
-  } else {
-    SidebarMenu = userMenu;
-  }
+  // let SidebarMenu = [];
+  // if (user?.isAdmin) {
+  //   SidebarMenu = adminMenu;
+  // } else if (user?.isDoctor) {
+  //   SidebarMenu = doctorMenu;
+  // } else {
+  //   SidebarMenu = userMenu;
+  // }
+
+  const SidebarMenu = user?.isAdmin
+    ? adminMenu
+    : user?.isDoctor
+    ? doctorMenu
+    : userMenu;
 
   // Render the Layout component
   return (
