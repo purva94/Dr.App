@@ -393,7 +393,7 @@ const Layout = ({ children }) => {
     },
     {
       name: "Profile",
-      path: `/doctor/Profile/${user?._id}`, // Update the path accordingly
+      path: `/doctor/profile/${user?._id}`, // Update the path accordingly
       icon: "fa-solid fa-user",
     },
   ];

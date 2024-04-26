@@ -128,6 +128,7 @@ const Doctors = () => {
       );
       if (res.data.success) {
         message.success("Doctor status updated successfully");
+        // message.success(res.data.message);
         // Reload the doctors list after status update
         getDoctors();
         window.location.reload();

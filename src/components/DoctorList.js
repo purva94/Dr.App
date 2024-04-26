@@ -31,15 +31,15 @@ const DoctorList = ({ doctor }) => {
             <b> Address: </b>
             {doctor.address}
           </p>
-          {/* <p>
-            <b>Fees Per Consultation: </b>
-            {doctor.feesPerConsultation}
+          <p>
+            <b>Fees Per : </b>
+            {doctor.feesPerCunsaltation}
           </p>
 
           <p>
             <b>Timings: </b>
             {doctor.timings[0]}-{doctor.timings[1]}
-          </p> */}
+          </p>
         </div>
       </div>
     </>
@@ -47,3 +47,20 @@ const DoctorList = ({ doctor }) => {
 };
 
 export default DoctorList;
+
+// import React from "react";
+
+// const DoctorList = ({ doctor }) => {
+//   return (
+//     <>
+//       <div className="card">
+//         <div className="card-header">
+//           Dr.{doctor.firstName}
+//           {doctor.lastName}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default DoctorList;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./../../components/Layout";
-
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -25,8 +24,8 @@ const Profile = () => {
           ...values,
           userId: user._id,
           timings: [
-            moment(values.timings[0].format("HH:mm")),
-            moment(values.timings[1].format("HH:mm")),
+            moment(values.timings[0]).format("HH:mm"),
+            moment(values.timings[1]).format("HH:mm"),
           ],
         },
         {
