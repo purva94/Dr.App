@@ -37,3 +37,46 @@ Git (optional but recommended)<br>
   ```bash
 git clone https://github.com/purva94/doctor-appointment-system.git
    ```
+2.Navigate to the project directory:
+ ```bash
+cd doctor-appointment-system
+```
+3.Set up the Backend:
+```bash
+cd ../frontend
+```
+Navigate to the backend folder:
+```bash
+cd backend
+```
+Install the required backend dependencies:
+```bash
+npm install
+```
+Start the backend server:
+```bash
+npm start
+```
+4. Set up the Frontend:<br>
+   Navigate to the frontend folder:
+   ```bash
+   cd ../frontend
+   ```
+Install the required frontend dependencies:
+```bash
+npm install
+```
+Start the React development server:
+```bash
+npm start
+```
+Open the application:
+```bash
+Visit http://localhost:3000 in your web browser.
+```
+## **Acknowledgments** 
+- **MongoDB:**
+- **Express.js:**
+- **React.js:**
+- **Node.js:**
+
