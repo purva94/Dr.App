@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+<h1>Doctor Appointment System</h1>
+A Doctor Appointment System is a full-stack web application built using the MERN Stack (MongoDB, Express.js, React.js, and Node.js). This project aims to streamline the process of booking and managing doctor appointments, providing a user-friendly platform for patients and healthcare providers.
+<!-- <h1>Features</h1>  -->
+<h2>1.Patient Features:</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1.1 User registration and secure login.<br>
+1.2 Browse and search for doctors by specialty, <br/>
+1.3 location, or availability.<br>
+1.4 Book, reschedule, and cancel appointments.<br/>
+1.5 View appointment history.<br/>
+1.6 Doctor Features:
 
-## Available Scripts
+<h2>2 Doctor registration and profile management:</h2>
+2.1 Manage availability and schedules.<br>
+2.2 Approve or reject appointment requests.<br>
+2.3 View patient details and appointment history.<br>
 
-In the project directory, you can run:
+<h2>3 Admin Features:</h2>
 
-### `npm start`
+3.1 Manage users (patients and doctors). <br>
+3.2 Manage appointments and system data.<br>
+3.3 Generate analytics and reports for system performance.<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>4 Additional Features:</h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4.1 Real-time notifications for appointment updates.<br>
+4.2 Responsive and mobile-friendly design.<br>
+4.3 JWT-based authentication for secure access.<br>
+4.4 Role-based access control (Admin, Doctor, Patient).<br>
+## **Installation**
+### **Prerequisites**
+- Node.js and npm (Node Package Manager) 
+MongoDB (Local or Cloud)
+Git (optional but recommended)<br>
+### **Steps**
+1. Clone the repository:
+  ```bash
+git clone https://github.com/purva94/doctor-appointment-system.git
+   ```
