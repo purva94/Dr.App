@@ -79,4 +79,25 @@ Visit http://localhost:3000 in your web browser.
 - **Express.js:**
 - **React.js:**
 - **Node.js:**
+  ## **Folder Structure**
+     ```bash
+  doctor-appointment-system/
+   ├── backend/
+   ├── config/         # Configuration files (e.g., database setup)
+   ├── controllers/    # Logic for handling requests
+   ├── models/         # Mongoose schemas for MongoDB
+   ├── routes/         # API endpoints
+   └── server.js       # Main server file
+
+   ├── frontend/
+   ├── public/         # Static files
+   ├── src/
+   │   ├── components/ # React components
+   │   ├── pages/      # React pages
+   │   ├── redux/      # State management
+   │   └── App.js      # Main React application file
+   └── package.json    # Frontend dependencies
+
+   └── README.md           # Documentation file
+   ```
 
